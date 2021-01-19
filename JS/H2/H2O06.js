@@ -10,7 +10,7 @@ function preload() {
   brug = loadImage("images/backgrounds/dame_op_brug_1800.jpg");
   spriteJos = loadImage("images/sprites/Jos100px/Jos_0.png");
 }
-//.
+
 function setup() {
   canvas = createCanvas(900,600);
   canvas.parent('processing');
