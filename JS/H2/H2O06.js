@@ -10,7 +10,7 @@ function preload() {
   brug = loadImage("images/backgrounds/dame_op_brug_1800.jpg");
   spriteJos = loadImage("images/sprites/Jos100px/Jos_0.png");
 }
-//
+
 function setup() {
   canvas = createCanvas(900,600);
   canvas.parent('processing');
@@ -25,10 +25,24 @@ function draw() {
   if (keyIsDown(RIGHT_ARROW)) {
     xJos += celGrootte;
   }
+  if (keyIsDown(LEFT_ARROW)) {
+    xJos -= celGrootte;
+  }
+  if (keyIsDown(DOWN_ARROW)) {
+    yJos += celGrootte;
+  }
+  if (keyIsDown(UP_ARROW)) {
+    yJos -= celGrootte;
+  }
   
   xJos = constrain(xJos,0,width - celGrootte);
-  
+  yJos = constrain(yJos,0,height - celGrootte);
+
   image(spriteJos,xJos,yJos);
+  if (xJos == 6*celGrootte
+ && yJos == 4*celGrootte) {
+ spriteJos.filter(ERODE); 
+}
 }
 
 function tekenRaster() {
